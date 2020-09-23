@@ -13,20 +13,32 @@
         }
         body{
             flex: 1;
-            background: #ffffff;
+            background: #241f1d;
             overflow: hidden;
             margin: 0;
             position: relative;
             min-height: 100%;
+            color: #444243;
+            font-family: "Open Sans", sans-serif;
+        }
+        a{
+            color: #444243;
+            text-decoration: none;
         }
 
+        /* # */
+
         #card{
-            width: 9.5cm;
-            height: 5.7cm;
+            box-sizing: border-box;
+            padding: 1.2cm 1.8cm ;
+            width: 19cm;
+            height: 11.4cm;
             background: white;
             background-repeat: no-repeat;
             background-size: cover;
             position: absolute;
+            display: flex;
+            flex-direction: column;
             top: 50%;
             left: 50%;
             transform: translateX(-50%) translateY(-50%);
@@ -39,7 +51,7 @@
 
         @media (max-width: 11cm){
             #card{
-                transform: translateX(-50%) translateY(-50%) rotate(90deg);
+                transform: translateX(-50%) translateY(-50%) rotate(90deg) scale(0.6);
             }
         }
 
@@ -55,11 +67,99 @@
             position: absolute;
             opacity: 0;
         }
+
+        .title{
+            flex: 1;
+        }
+
+        .name{
+            font-size: 36px;
+            margin: 0;
+            align-items: center;
+            margin-top: 1cm;
+            line-height: 80px;
+            display: flex;
+        }
+
+        .name:before{
+            content: '';
+            background-color: #ee8600;
+            width: 10px;
+            border-radius: 5px;
+            height: 80px;
+            margin-right: 24px;
+            display: inline-block;
+        }
+
+        .block{
+            display: flex;
+            align-items: center;
+        }
+
+        .block + .block{
+            margin-top: 0.5cm;
+            font-size: 18px;
+            line-height: 1.5;
+        }
+
+        .block .content{
+            justify-content: center;
+            display: flex;
+            flex-direction: column;
+            padding-left: 16px;
+        }
+
+        .icon-b{
+            display: block;
+            width: 32px;
+            height: 32px;
+            background-position: center left;            
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .icon-b.phone{
+            background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACsAAAArCAYAAADhXXHAAAAEF0lEQVRYhe2ZbWgbZRzAf5fkmqZL2kLp5ibsTUaloBvaoVIcdJsy59aXYes6FUT2YU5ROgRBZU6c/VJocV9kYEUmdLjV2ZdNHEz3wVdaP1in0w7UuSFMtrZrm7S5JHcnzyVp0z1N1jTXLoX+4CD8//889+O55/73XKIMNhJnJ9AAbAS83Hn8QC/QDJwWNo6Y0mGgC6jIElFiHsKnO+aHmNkdsUC2Uylm9sACEBU0CNkyKZydlAlZ3wKR9TmkUBazKDtX2C6ruItQV9eC6pJymWL7iK7lm/HWnwBTJ/zXObSeVsKXT0p1s8H5+hYOpfM9xbMK17JHMfyXpJyFoUJwEHLyUFdtIue+WtSVm4lc6cPUrknlaZ17sBFTiibBedc2fM98ipKTT7i/C39HFRjT1wqcReV4Kt5AXbcdMzSKv/0FIv+0S3UzZcZr1rX8CXzPfWaJCtSSSry7ulOOoA98h7/9SQKn9qI4XPh2t+G6e6dUZ6+sCt66j1FceVPD63ZIwrkb3yR/3594NjWh5C61YqH+Vkbb6gAT79PHcBRskE5hm6xrxVMoeUuleFzYff/k9sIMj+PwFJJb/hoF+/tR19Zb8ci/pwl07EdxF5K3rUkaxzZZRblNmRGZ+Kj93MzN94sY++IAitONt+6TaCuLzXC4vxN17VbUNbulYWyR1Qf7pVic0K/H0S4cuUUetL4WRo5VYuoaS6o/mFgSY+cbreXgfmivNJYtssZIH/qALBy+eJLAmT0k6yf6f+cIfnUIxVNE7oOvRsca6iFy9XvU1RXWA8R2WUHol+NSTB+8nLJ1CYJ9TZihEdTSmolY+NJZMEI4i8ul+lTMuM+KWSh4+W+UnIQdZWSc4aOPWDOfCtfKXZjjQ+jXz0ernNGlMvMOH2XGM2tqAwS/veUudnlYUvOh1dpSEblyalJUoKcvSrobmWDvu+jXf5vqu6IMb83Zedm/pXcKAwIdL1rrLRH1nsfxVndEL28iCrjXN1iH+Dy/suIK3viGQPcrUlwtqcL3bA+O/PUTI3srT5C3vdk6vNWfZzz7aW1kEhGPVc/Ww1LcjIyh/XAEZ3EJ6r01U3LhPzrwd9bctoMkY9ayAs/D75BbcVCKp0L0Zn9nXaqSpGR0YcZ/fJtA5z4wwlIuGWppLc5ljyXJpibjezh08SgjrVvQb/wu5abD1IYwhi9Mk5kHWWI33chHpYx/fRBTG5byccxwgNG2eszg7N4YMlqz0yGedO4NL+F+4HkchWsmRbUhRtv2oF/7cppv3SHZRByFZTiLS8HQCV/tgtCoVJMO9r8vJ2Dc/Mk67GLxF5m5YlF2rlhwspn1k/nDL2Tt6y1zS6+QbVkgsi2O2N9K70mp7EL4dcdvsLeAKkC81QWyRFN4CJ9Kyw/4H7d0RRnJE2UAAAAAAElFTkSuQmCC');
+        }
+        .icon-b.mail{
+            background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACoAAAAqCAYAAADFw8lbAAADOElEQVRYhe2ZSWgTURyHv8nSNDXW4ob04oYgKnpxBXHFakVbPFhcUA+uILhdXKon27rWevDgjgtYD+LSitL2IJQqotW64VIQFD0o1mqTTpNMkhl5aRXlaZxJU00hH+Tye//38uW9N29miNJcwnfmA5uBcYCH/4sXuAscAqqEia1DpwioAKYngaQgE8gBbgLbRSBmdB5QKZUmDwYwQ8zoliSWFChiSwrRsVJT8jFeiPbsBqJumxQlKSnRRJMSTTTdRtQhJbGwg71fTscZHCeGTqT5FoTCXSRqh8xVjdh7D5OarGK0NeE9NQW99YXpnqaX3tF/bkIkBUpGX5xD50h5LEyLRnyvAV3K4yXy+XXXiBqtrwjUHZDyeAg1VhJ+X9E1oqLSX7eNQG1Jp2ZWe3qB1qt5ls8b83s0O5+MaYfx3ynEdzYP3ftOqomFoXlRr6xBvb4U16hNuEZbe7q09LtcEzfSc/l99LaPtBwfgvb4vFTzO8Jva/Eem0joTSWeBZfJmFuGYrd2Mlo+8B3ZY+m1uhbXyA2oN5bTemkFRvCLVBdFD+Gv2YGvfCr2vqPptfYJzuELpDJT3yslpnq5ycgthYhG8OkRWo7W4ck/gWPQjB8lkaYX0aWONNVhHzAbz+LyTt0o4r6FBh8cJ/jsCM4hS3AMmIDv4kzUa+sIvbyKv6YQ7+kRYEvDNWYzkQ9V+Ku2SmNYIa4Z1R6epK1mLc7BS/AUnAXFgfY4F//tMrTnx1DcA3FPPkj6pI3RNsXVg8C9IlAU3Dn7pPHMYFlUaziNWr36F0lB2phl0Y8RaEZJz/plsdwzd4OuE6gvAcWGe9Yeady/YUlUe3QGtWolzsGL8Sw880PyZ5T03lIWlZ1VHD1/A/V72/eqYUg1sRDv9eZ6pGVB6CvOQYvwFJwDm1MqMYO/eiuBB/tRXH0wgp/NdmuRp+RPaEKyoH2545QUiD1q6BGCDaVSWywsLX340yPUa+uj+6wzhD88sdzbkqihNqK9bJTyf0HqnSnRpEQTTUo00XQrUZ+UJh9+IVrfDUTvCdEyKU4uxEPTYVvHPyLFSSy5C7j1/WLaCeSLAFD/s5xAXDfVQG50EoFvy571QaMYgWwAAAAASUVORK5CYII=');
+        }
+        .icon-b.address{
+            background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACoAAAAqCAYAAADFw8lbAAADVklEQVRYhe2ZXUhTYRjH/2dnO+J0u3ASldSVaVk3UQldRV1EVibVVSAVRXRhHxQmRXkRlHijCREhRBfd9kG58Isysw+iD0qRYlmhGYSBktNt7uzsLJ6p0XzmcefsqBP6Xcn/ec/28915n/O+mzBUhUmKAZwCsAFAJuYXL4BXAGoBtJCJZULnEoAGAJtTQJJwAtgKoAnAOQpoRncCcLOhqUMEwBaa0dMpLEkIdEuS6HpWSj0KSdSxAETTLSxKURaMqJUlehEAW+5BpBUUwZK1AkLGIkTkUagDXZA9rZA9N8bXbbJvM1Rl/GXExduQUVwLMXsVq00SHvTA31gB5UcDq+lg2PBHL+UfhvNAg6Zk9J9x5cNRehdpa8pYTQ+GRK1LdyBjdz1gsbFaXAQr7MVXYV2+N141IfSLCoC9uBYQRFaa6UJ7UfV4+54LUVvufohZeSwnVO93hDwPEP7VxWqEmJULKe8QyxNB96pPW7WdZcTYyxoEOsr/rnCp4CgySq5j6hRKq0sge26y62dC94yKOYUsCw90IvC0PKYNyR/rIXfeYmOtyzaybFZELc4clinfHrOMCH19xjLBnm3oPtUnSuvHIrFYkOJvFwTJzjKyFCQXS2dCn2iYdodhFtsK9kBIm/LmAiCtLWVjiYg8yDJzRcl1qIdlQroLjn0tELM3jb+oowCZu+7AGud+Vr39hh6puld9uO85RNdKlotL1sF5pB1QQ5oPAqWP37eJoHtGg133WBaDhmT0+s7bLJsVUeVnE0Jfmlme0LW97VD677M8EQw96/3NZxBR/CzXJDwGX1OF5hAtDImqI90ItJ5nuRaBtotQf7/RGqKJ4W1esLMOSm8by+Oh9L/A2LvqOJU5ECV87mOIhEZZHoMSgM99POldflKi6ugnBJrPsvxf/I8qoQ6/Z7lekj7cBbuvTdsFlL4OBD/UsHxeRAlf40lEZG9MRl3B5y4z5WAHs0Qjvs/wT2k91BWoO5iFaed62n+Geh5G/6ZuQF3BTEz9AsLXeALqcG+0G5hNUuf6uNDeVB6JV0kG4+f6aTFfMsr/L8nMhkRn57MylwCJvl0Aoq9J9AqLUwvqSnWWiV9ELqewZCWAJ5OL6QKAEgqob8+zHEHrphVAUXQSAfwB/Hbz7cWzPxwAAAAASUVORK5CYII=');
+        }
     </style>
 </head>
 <body>
     <section id="card">
-
+        <div class="title">            
+            <h1 class="name">Junior Moreira</h1>
+        </div>
+        <div class="block">
+            <div class="icon">                
+                <span class="icon-b phone"></span>
+            </div>
+            <div class="content">
+                <a class="info" href="tel:+5563992134638"><b>+55</b> 63 99213-4638</a>
+                <a class="info" href="tel:+556330281595"><b>+55</b> 63 3028-1595</a>
+            </div>
+        </div>
+        <div class="block">
+            <div class="icon">                
+                <span class="icon-b mail"></span>
+            </div>
+            <div class="content">
+                <a class="info" href="mail:diretoria@tocantinstransporte.com.br">diretoria@tocantinstransporte.com.br</a>
+            </div>
+        </div>
+        <div class="block">
+            <div class="icon">                
+                <span class="icon-b address"></span>
+            </div>
+            <div class="content">
+                <a class="info" href="https://www.google.com.br/maps/place/Tocantins+Transporte+e+Turismo+LTDA/@-10.2218113,-48.3156681,18.63z/data=!4m5!3m4!1s0x9324cc96aa75f62f:0xbc3ebc675769ce!8m2!3d-10.2225195!4d-48.3154693"><b>612 SUL AL 03 QI 03 LT 19 A 28</b><br />
+                    Palmas, Tocantins
+                </a>
+            </div>
+        </div>
     </section>
 
     <div id="control"></div>
