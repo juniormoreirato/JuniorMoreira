@@ -63,29 +63,5 @@
     </section>
 
     <div id="control"></div>
-
-    <script>
-        const cardsize = { width: 3.75, height: 2.25};
-
-        function adjust(){
-            // let aspect = window.devicePixelRatio;
-            // let inch = document.getElementById('control').offsetWidth;
-            // let card =  document.getElementById("card");
-            // let dppin = inch*aspect;
-
-            // card.style.width = (cardsize.width * dppin) + "px";
-            // card.style.height = (cardsize.height * dppin) + "px";
-
-            if(window.screen.width < (cardsize.width * dppin)){
-                card.classList.add('turned');
-            }else{
-                card.classList.remove('turned');
-            }
-        }
-
-        window.addEventListener("load", () => { adjust(); });
-        window.addEventListener("resize", () => { adjust(); });
-
-    </script>
 </body>
 </html>
